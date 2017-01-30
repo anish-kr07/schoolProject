@@ -11,7 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -53,11 +55,12 @@ public class TeacherServiceTest {
 
 
     @Test
+    //@Transactional // add this for test case to pass
     public void findAllCLassesByATeacher() throws Exception {
-        ArrayList<Klass> classes = this.teacherService.findAllClassesByTeacher(2);
-        assertEquals(2, classes.size());
-        assertEquals("ClassB", classes.get(0).getName());
-        assertEquals("ClassD", classes.get(1).getName());
+        List<Klass> klasses = this.teacherService.findAllClassesByTeacher(2);
+        assertEquals(2, klasses.size());
+        assertEquals("ClassB", klasses.get(0).getName());
+        assertEquals("ClassD", klasses.get(1).getName());
     }
 
 }

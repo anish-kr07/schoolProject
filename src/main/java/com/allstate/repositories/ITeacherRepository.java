@@ -17,7 +17,8 @@ public interface ITeacherRepository extends CrudRepository<Teacher, Integer>{
     public ArrayList<Teacher> findByGender(Gender gender);
     public ArrayList<Teacher> findByAgeGreaterThan(int age);
 
-    String sql1 = "select (klasses.name) from klasses where teacher_id = :teacherId";
-    @Query(value = sql1, nativeQuery = true)
-    public ArrayList<Klass> findAllClassesByTeacher(@Param("teacherId") int teacherId);
+//     This is not required if we have a referene array in the Teacher class
+//    String sql1 = "select name from klasses where teacher_id = :teacherId";
+//    @Query(value = sql1, nativeQuery = true)
+//    public ArrayList<String> findAllClassesByTeacher(@Param("teacherId") int teacherId);
 }
